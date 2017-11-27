@@ -1,28 +1,5 @@
-{{background-snow}}
-<div class="container-fluid main-full-container"></div>
-<div class="scrollable-main-container">
-    <div class="main-content-container">
-        <div class="content-header">
-            <section class="content-header-avatar">
-                <img src="/assets/images/circleAvatar.png" />
-            </section>
-            <section class="content-header-logo">
-                <span>Rick Twohy</span>
-            </section>
-        </div>
-        <div class="nav-main">
-            {{navbar-main}}
-        </div>
-        <div class="content-body">
-            {{outlet}}
-        </div>
-        <div class="content-footer">
-            {{navbar-footer}}
-        </div>
-        <div class="content-copywrite">
-            <h5 style="text-align: center;">
-                &copy; COPYWRITE 2016 - {{moment-format (now) 'Y'}} RICK TWOHY
-            </h5>
-        </div>
-    </div>
-</div>
+{{!-- The following component displays Ember's default welcome message. --}}
+{{welcome-page}}
+{{!-- Feel free to remove this! --}}
+
+{{outlet}}
