@@ -1,0 +1,57 @@
+<li>
+    <!-- Image & Description -->
+    <div class="col-xs-12" style="background: #393939; border-radius: 8px; margin-bottom: 10px;">
+        <div class="row" style="padding: 8px;">
+            <!-- IMAGE -->
+            <div class="col-lg-3 col-md-12" style="background: white;">
+                <img {{action "toggleImageModal" project.imageLocation on="click"}} class="card-img-top" src="{{project.imageLocation}}" style="width: 100%;  float: left; margin: 8px auto;" alt={{project.title}}>
+                <span class="text-muted" style="float: left; font-size: 1.8em; width: 100%;text-align: center;">{{project.createdDate}}</span>
+            </div>
+            <!-- DESCRIPTION / FOOTER -->
+            <div class="col-lg-9 col-md-12 card-body" style="background: white; display: block; margin: 0; padding:0;">
+                <div class="row">
+                    <!-- DESCRIPTION / TITLE -->
+                    <div class="col-xs-12" style="float: left; margin-bottom: 50px; ">
+                        <div class="row" style="padding: 0; margin: 0;">
+                            <!-- TITLE -->
+                            <div class="col-xs-12">
+                                <h2 class="card-title text-left" style="padding: 10px 0 0 0;">{{project.title}}</h2>
+                            </div>
+                            <div class="col-xs-12">
+                                <p class="card-text text-left" style="font-size: 1.8em">{{project.description}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FOOTER -->
+                <div class="row">
+                    <div class="col-xs-10" style="position: absolute; bottom:0; left: 0; display: block; background: white; float: left;">
+                        <a href='{{projectLocation}}' target={{targetLocation}} style="float: center;">
+                            <h4 style="color: #99ca53; text-decoration: underline; text-align: center;">{{linkToProjectText}}</h4>
+                        </a>
+                    </div>
+                    <div class="col-xs-2" style="position: absolute; bottom:-10px; right: 0; text-align: center;">
+                        <a href='{{project.githubLocation}}' target="_blank" style="float: center; display:{{githubLocationShowStatus}}">
+                            <img src="assets/images/social-icons/github-green.png" style="width: 100%; min-width: 30px; max-width: 30px;" alt="Github">
+                            <p style="white-space: nowrap; color: #393939;">
+                                Github Page
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+
+{{#if isShowingImageModal}}
+    {{#modal-dialog onClose="resetImageModal"
+                  targetAttachment="center"
+                  translucentOverlay=true}}
+
+                  <img src="{{selectedModalImageLocation}}" style="width: 100%; max-width: 1200px;">
+
+    {{/modal-dialog}}
+{{/if}}
