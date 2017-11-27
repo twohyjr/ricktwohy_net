@@ -1,0 +1,6 @@
+{{input type="text" class="twohys-movies-searchbar" placeholder="Search Movies" value=txtCurrentMovie }}
+<ul style="display: block; list-style-type: none;">
+    {{#each sortedMovies as |movie|}}
+        {{movie-list-item movie=movie}}
+    {{/each}}
+</ul>

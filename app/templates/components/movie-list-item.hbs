@@ -1,0 +1,21 @@
+<li class="col-xs-12" style="float: left; background: #535353; padding: 10px; border-bottom: 2px solid #777777; display: block;" {{action "showMovieModal" on="click"}}>
+    <div style="width: 9%; height: 16%; float: left; margin: auto;">
+        <img class="card-img-top" src="{{movie.formatted_poster_path_185}}"  alt="Card image cap">
+    </div>
+    <div class="col-xs-10" style="float: left;">
+        <h2 style="padding: 0; margin: 0; color: white;">{{movie.title}} <span class="muted-text" style="color: #999999; font-size: .9em;">({{moment-format movie.release_date 'YYYY'}})</span></h2>
+        <div style="width: 100%; padding: 3px;">
+            {{movie-star-rating movie=movie}}
+        </div>
+        <h4 style="position: absoute; bottom: 0; color: #c1c1c1">{{movie.overview}}</h4>
+    </div>
+</li>
+{{#if isShowingMovieModal}}
+    {{#modal-dialog onClose="resetMovieModal"
+                  targetAttachment="center"
+                  translucentOverlay=true}}
+
+                  <img src="{{movie.formatted_poster_path_780}}" style="width: 100%; max-width: 600px;">
+
+    {{/modal-dialog}}
+{{/if}}
