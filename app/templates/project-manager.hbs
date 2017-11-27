@@ -1,0 +1,53 @@
+
+<button type="button" class="btn btn-success" {{action "addProject"}} style="margin: 10px 0 0 20px;">Add Project</button>
+<ul style="margin: 20px; list-style-type: none !important;">
+    {{#ui-sortable content=sortedProjects moved=(action "movedProject") as |project|}}
+        <li class="ui-state-default" style="background: #393939; border:none; padding: 0 10px 10px 10px;">
+        <div class="card" style="display: block; overflow: hidden; cursor: pointer;" {{action "projectCardClicked" project.id on="click"}}>
+            <img class="card-img-top" src="{{project.imageLocation}}" style="width: 150px; float: left; margin-right: 5px;" alt="Card image cap">
+            <div class="card-body" style="height: 100%;">
+                <h4 class="card-title">{{project.title}}</h4>
+                <p class="card-text">{{project.description}}</p>
+                <p class="card-text" style="position: absolute; bottom: 0; right:0; padding-right: 10px;"><span class="text-muted" style="font-size: 1.2em;">{{project.createdDate}}</span></p>
+                <p class="card-text"><span class="text-muted" style="font-size: 1.2em;">Sort Order: {{project.sortOrder}}</span></p>
+            </div>
+        </div>
+        <div id={{project.id}} style="width: 100%; height: auto; display: none;">
+            <div class="col-xs-12" style="background: grey; padding: 10px;">
+                <form>
+                    <div class="form-group input-text-project">
+                        <label class="label-project">Title</label>
+                        {{input type="text" class="form-control input-project-title" value=project.title}}
+                    </div>
+                    <div class="form-group input-text-project">
+                        <label class="label-project">Creation Date</label>
+                        {{input type="text" class="form-control input-project-title" value=project.createdDate}}
+                    </div>
+                    <div class="form-group input-text-project" >
+                        <label class="label-project">Project Info Location</label>
+                        {{input type="text" class="form-control input-project-title" value=project.urlLocation}}
+                        <label style="color: #c5c5c5; font-size: 1.5em; ">{{input type="checkbox" checked=project.urlIsInternal}} Internal?</label>
+                    </div>
+                    <div class="form-group input-text-project">
+                        <label class="label-project">Github Location</label>
+                        {{input type="text" class="form-control input-project-title" value=project.githubLocation}}
+                    </div>
+                    <div class="form-group input-text-project">
+                        <label class="label-project">Image Name</label>
+                        {{input type="text" class="form-control" value=project.imageLocation}}
+                    </div>
+                    <div class="form-group input-text-project">
+                        <label class="label-project">Description</label>
+                        {{textarea class="form-control textarea-project-description" value=project.description}}
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" {{action "updateProject" project}}>Save Project</button>
+                        <button type="button" class="btn btn-danger" {{action "deleteProject" project}}>Delete Project</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </li>
+    {{/ui-sortable}}
+
+</ul>

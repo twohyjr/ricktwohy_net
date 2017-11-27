@@ -17,14 +17,14 @@ export default DS.Model.extend({
     vote_average: attr('number'),
     popularity: attr('number'),
     genre_ids: attr(),
-    formatted_poster_path_185: Ember.computed('poster_path', function(size,va){
+    formatted_poster_path_185: Ember.computed('poster_path', function(){
         var posterPath = this.get('poster_path');
         if(posterPath !== '' && posterPath !== null){
             return "http://image.tmdb.org/t/p/w185/" + this.get('poster_path')
         }
         return '/assets/images/missingPhoto.png'
     }),
-    formatted_poster_path_780: Ember.computed('poster_path', function(size,va){
+    formatted_poster_path_780: Ember.computed('poster_path', function(){
         var posterPath = this.get('poster_path');
         if(posterPath !== '' && posterPath !== null){
             return "http://image.tmdb.org/t/p/w780/" + this.get('poster_path')

@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('twohys-movies', function() {
     this.route('discover');
   });
+  this.route('project-manager');
 });
 
 export default Router;

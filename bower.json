@@ -1,0 +1,6 @@
+{
+  "name": "ricktwohy-net",
+  "dependencies": {
+    "jquery-ui": "^1.12.1"
+  }
+}
