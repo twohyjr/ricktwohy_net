@@ -5,12 +5,18 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    'ember-bootstrap': {
-      'bootstrapVersion': 3,
-      'importBootstrapFont': true,
-      'importBootstrapCSS': false
-    }
+      'ember-prism': {
+          'theme': 'okaidia',
+          'components': ['scss', 'javascript', 'swift','c'], //needs to be an array, or undefined.
+          'plugins': ['line-highlight']
+      },
+      fingerprint: {
+          exclude: ['images/ratings/','images/social-icons/']
+      }
   });
+
+  app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+  app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
